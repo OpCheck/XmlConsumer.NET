@@ -1,0 +1,15 @@
+(
+	ExpressionType: 'XPath';
+	Encoding: 'UTF8';
+	Binding: 'self::*';
+	AutoParseMode: 'On';
+)
+{
+	ChildObject (ExpressionType: 'Constant'):
+	{
+		FirstName: 'Eric';
+		LastName: 'Walker';
+		BirthDateTime: '1985-01-25T00:00:00';
+		YearsOld: '31';
+	}
+}

@@ -1,0 +1,10 @@
+(
+	ExpressionType: 'XPath';
+	Encoding: 'UTF8';
+	Binding: 'self::*';
+	AutoParseMode: 'On';
+)
+{
+	BillingCode1: null;
+	BillingCode2: null;
+}

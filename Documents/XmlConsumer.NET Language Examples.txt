@@ -1,0 +1,101 @@
+//
+// A PREPROCESSING TUPLE IS AN ORDERED SET OF NAMED OPTIONS AND BINDING EXPRESSIONS AND IS REPRESENTED BY A PARENTHESIS.
+//
+(
+	ExpressionType: 'XPath',
+	Encoding: 'UTF8',
+	Prefix: ('hr', 'http://ns.hr-xml.org/2004'),
+	Binding: 'self::*',
+	Bindings: ('hr:BackgroundCheck', 'hr:BackgroundOrder')
+)
+//
+// A CURLY BRACE DENOTES THAT WE ARE LOADING AN OBJECT.
+// THIS IS CALLED THE CONSUMPTION SET.
+// WE START WITH THE "CONTEXT" OBJECT.
+//
+{
+	//
+	// AN ASSIGNMENT INDICATES THAT WE ARE SETTING A FIELD ON THE OBJECT WHICH IS THE RESULT OF THE FOLLOWING TUPLE.
+	// IN THIS CASE WE ARE SETTING BILLING CODE 1 - WHICH IS A FIELD ON THE CONTEXT OBJECT.
+	//
+	// BillingCode1 COULD BE A FIELD, SETTER (PROPERTY WITH A SET FUNCTION), A 0-PARAMETER METHOD ON THE CONTEXT OBJECT OR A SINGLE-PARAMETER METHOD.
+	//
+	BillingCode1 =
+	(
+		ExpressionType: 'XPath',
+		Binding: 'child::hr:BackgroundCheck',
+		Binding: 'child::hr:BackgroundOrder',
+		Data: 'child::hr:Data[position() = 1]',
+		ParseMethod: 'System.Int32.Parse()'
+	);
+	
+	//
+	// SET A CHILD OBJECT ON THE TARGET OBJECT.
+	// WE CAN ASSOCIATE AN OPTIONS TUPLE TO THE "NEW" CONTEXT OBJECT.
+	// 
+	PrimarySubject (ExpressionType: XPath, Binding: "child::PrimarySubject") =
+	{
+		FirstName = "";
+		LastName = "";
+		SocialSecurityNumber
+		
+		//
+		// WHAT IF SOCIAL SECURITY NUMBER MUST BE CONVERTED TO AN INTEGER?
+		//
+		// THE SYSTEM SHOULD AUTOMATICALLY PARSE THIS VALUE USING KNOWN PARSE METHODS.
+		// FOR EXAMPLE, IF THE SOCIAL IS AN INT32 TYPE - THEN WE USE System.Int32.Parse TO CONVERT IT.
+		// USERS OF THE LIBRARY SHOULD BE ABLE TO SPECIFY ADDITIONAL PARSE ROUTINES OR BE ABLE TO EXPLICITLY SPECIFY THEM.
+		//
+		 (ExpressionType: "Constant", ParseMethod: "System.Int32.Parse") = "111335555";
+		
+		//
+		// IMPLICIT PARSING.
+		//
+		SocialSecurityNumber (ExpressionType: "Constant") = "111335555";
+
+		//
+		// IMPLICIT PARSING USING THE DEFAULT EXPRESSION TYPE.  IN THIS CASE THIS IS XPATH.
+		// THE SYSTEM CHECKS THE TYPE OF THE TARGET PROPERTY AND USES THE KNOWN PARSE METHOD OF THAT TYPE.
+		//
+		SocialSecurityNumber = "child::SSN";
+	};
+	
+	BillingCode1 ("child::hr:BackgroundCheck/child::hr:BackgroundOrder");
+	
+	//
+	// THIS IS A SPECIAL CASE FOR OUR XPATH EXPRESSION TYPE.
+	// AN EMPTY STRING RETURNS THE "NO STATEMENT" DEFAULT VALUE FOR XPATH.
+	// THE TARGET IS ASSIGNED EITHER AN EMPTY STRING OR NULL VALUE DEPENDING ON HOW THE SYSTEM IS CONFIGURED.
+	//
+	BillingCode12 = "";
+	
+	//
+	// A VALUE OF NULL ALWAYS RETURNS NULL NO MATTER WHAT THE EXPRESSION TYPE IS.
+	// THAT WAY, WE CAN LEAVE THE OPTIONS INTACT ON THE LEFT SIDE.
+	//
+	BillingCode33 (ExpressionType: XPath) = null;
+
+	//
+	// AN EXPRESSION TYPE OF NULL ALWAYS RETURNS NULL.
+	// THAT WAY, WE CAN LEAVE THE EXPRESSION INTACT ON THE RIGHT SIDE.
+	//
+	BillingCode44 (ExpressionType: Null) = "SOMETHING, ANYTHING";
+	
+	//
+	// IF THE ASSIGNMENT ID EXISTS THEN IT IS SET ON THE EXTERNAL VENDOR ID.
+	// IF THE ASSIGNMENT ID DOES NOT EXIST THEN AN EMPTY STRING IS RETURNED.
+	//
+	ExternalVendorId = "child::AssignmentId";
+
+	
+	//
+	// BINDING TO ARBITRARY OBJECT IS ALSO INTERESTING BECAUSE WE DON'T KNOW IF THE OBJECT IS NULL OR NOT.
+	//
+	PrimaryAddress (Binding: "child::PrimaryAddress") =
+	{
+		Line1 = "AddressLine1";
+		Line2 = "AddressLine2";
+		City = "Municipality";
+		City = "State";
+	};
+}

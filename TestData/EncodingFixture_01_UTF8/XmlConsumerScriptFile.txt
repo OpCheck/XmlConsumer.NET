@@ -1,0 +1,7 @@
+(
+	Encoding: 'UTF8';
+	Prefix: 'city', 'http://www.opcheck.net/2017-04-25/city-xml';
+)
+{
+	Name: 'child::city:Blocks/child::city:Block/child::city:Building[position() = 1]/attribute::Name';
+}

@@ -1,0 +1,6 @@
+(
+	ExpressionType: 'Constant';
+)
+{
+	Name: 'Constant Building Name';
+}

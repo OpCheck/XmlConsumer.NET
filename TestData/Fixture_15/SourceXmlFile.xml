@@ -1,0 +1,14 @@
+<BackgroundCheck xmlns="http://ns.hr-xml.org/2007-04-15">
+	<BackgroundCheckOrder>
+		<Subject>
+			<Name>
+				<First>Rainbow</First>
+				<Last>Bright</Last>
+			</Name>
+			<Address>
+				<Line1>1001 Yellow Brick Rd</Line1>
+				<City>Oz</City>
+			</Address>
+		</Subject>
+	</BackgroundCheckOrder>
+</BackgroundCheck>

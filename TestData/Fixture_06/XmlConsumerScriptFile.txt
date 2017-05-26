@@ -1,0 +1,8 @@
+(
+	ExpressionType: 'XPath';
+	Encoding: 'UTF8';
+	Binding: 'self::*';
+)
+{
+	BillingCode2: 'BillingCode2';
+}

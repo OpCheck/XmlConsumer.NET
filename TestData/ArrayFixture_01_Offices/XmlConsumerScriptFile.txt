@@ -1,0 +1,15 @@
+(
+	Encoding: 'UTF8';
+	ExpressionType: 'XPath';
+	Prefix: 'city', 'http://www.opcheck.net/2017-04-25/city-xml';
+	Binding: 'city:Blocks/city:Block/city:Building';
+	AutoParseMode: 'On';
+	AutoCreateMode: 'OnlyIfNull';
+	NullObjectTreatmentMode: 'Throw';
+)
+{
+	Offices (Binding: 'city:Offices/city:Office'):
+	{
+		SquareFeet: 'city:SquareFeet';
+	}
+}

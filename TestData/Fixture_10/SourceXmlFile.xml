@@ -1,0 +1,11 @@
+<SourceDocument xmlns="http://ns.hr-xml.org/2007-04-15">
+	<BillingCodes>
+		<BusinessLine Name="Engines">
+			<Division Name="Rings">
+				<Department Name="Research">
+					<BillingCode1>770011</BillingCode1>
+				</Department>
+			</Division>
+		</BusinessLine>
+	</BillingCodes>
+</SourceDocument>

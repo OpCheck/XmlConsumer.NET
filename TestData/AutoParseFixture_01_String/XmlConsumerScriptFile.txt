@@ -1,0 +1,7 @@
+(
+	Prefix: 'city', 'http://www.opcheck.net/2017-04-25/city-xml';
+	Binding: 'city:Blocks/city:Block/city:Building';
+)
+{
+	Name: 'attribute::Name';
+}

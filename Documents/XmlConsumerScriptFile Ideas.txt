@@ -1,0 +1,26 @@
+(
+	ExpressionType: XPath;
+	AutoParseMode: On;
+	Encoding: UTF8;
+	Prefix: 'hr', 'http://ns.hr-xml.org/2.5/namespace';
+	Bindings: 'hr:BackgroundCheck', 'hr:BackgroundOrder';
+	Binding: 'hr:PersonDetails';
+)
+{
+	ExternalRequestId (Constant): '';
+	BillingCode1 (Null): '';
+	FirstName: '';
+	
+	PrimaryAddress (XPath):
+	{
+		Line1: '';
+	};
+	
+	PrimarySubject (XPath):
+	{
+		PrimaryAddress:
+		{
+		
+		};
+	};
+}

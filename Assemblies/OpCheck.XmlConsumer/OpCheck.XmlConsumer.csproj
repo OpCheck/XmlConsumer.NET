@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{51FD9D46-E75C-451E-A1A6-127B311E7065}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OpCheck.XmlConsumer</RootNamespace>
+    <AssemblyName>OpCheck.XmlConsumer</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr4.Runtime.Standard, Version=4.7.0.0, Culture=neutral, PublicKeyToken=e78b2c5abd1fcb3f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MasterAssemblyReferences\ANTLR4\Antlr4.Runtime.Standard.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoParseDelegate.cs" />
+    <Compile Include="AutoParseMethods.cs" />
+    <Compile Include="AutoParseMode.cs" />
+    <Compile Include="ConstantDataExpressionEvaluator.cs" />
+    <Compile Include="ContextInfo.cs" />
+    <Compile Include="DataExpressionEvaluator.cs" />
+    <Compile Include="DataExpressionEvaluatorFactory.cs" />
+    <Compile Include="EncodingFactory.cs" />
+    <Compile Include="ExtractValueDelegate.cs" />
+    <Compile Include="InvalidXmlConsumerOptionException.cs" />
+    <Compile Include="MultiNodeExpressionEvaluator.cs" />
+    <Compile Include="MemberNotFoundException.cs" />
+    <Compile Include="NullDataExpressionEvaluator.cs" />
+    <Compile Include="NullMappingCommand.cs" />
+    <Compile Include="ObjectLoader.cs" />
+    <Compile Include="OptionsTuple.cs" />
+    <Compile Include="SingleNodeExpressionEvaluator.cs" />
+    <Compile Include="MappingCommands\SingleValueObjectsMappingCommand.cs" />
+    <Compile Include="StringTerminalReader.cs" />
+    <Compile Include="TokenReader.cs" />
+    <Compile Include="TerminalNodeReader.cs" />
+    <Compile Include="XmlConsumerErrorStrategy.cs" />
+    <Compile Include="XmlConsumerExpressionType.cs" />
+    <Compile Include="XmlConsumerInterpreter.cs" />
+    <Compile Include="XmlConsumerLexer.cs" />
+    <Compile Include="XmlConsumerParseException.cs" />
+    <Compile Include="XmlConsumerParser.cs" />
+    <Compile Include="XmlNodeValueExtractor.cs" />
+    <Compile Include="XPathDataExpressionEvaluator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoCreateMode.cs" />
+    <Compile Include="AutoCreators\AlwaysAutoCreator.cs" />
+    <Compile Include="AutoCreators\AutoCreator.cs" />
+    <Compile Include="AutoCreators\AutoCreatorFactory.cs" />
+    <Compile Include="AutoCreators\NeverAutoCreator.cs" />
+    <Compile Include="AutoCreators\OnlyIfNullAutoCreator.cs" />
+    <Compile Include="IXmlConsumerListener.cs" />
+    <Compile Include="XmlConsumerBaseListener.cs" />
+    <Compile Include="XmlConsumerEncodingDiscoveryVisitor.cs" />
+    <Compile Include="IXmlConsumerVisitor.cs" />
+    <Compile Include="MappingCommands\ArrayContainsSingleValueObjectMappingCommand.cs" />
+    <Compile Include="MappingCommands\ArraysMappingCommand.cs" />
+    <Compile Include="MappingCommands\SingleValueObjectContainsArrayMappingCommand.cs" />
+    <Compile Include="Collectivity.cs" />
+    <Compile Include="MappingStrategy.cs" />
+    <Compile Include="MappingStrategySelector.cs" />
+    <Compile Include="MappingCommands\MappingCommand.cs" />
+    <Compile Include="MappingCommands\MappingCommandFactory.cs" />
+    <Compile Include="NullContextObjectException.cs" />
+    <Compile Include="NullObjectTreatmentMode.cs" />
+    <Compile Include="ObjectCreator.cs" />
+    <Compile Include="ObjectReflector.cs" />
+    <Compile Include="TypeAnalyzer.cs" />
+    <Compile Include="XmlConsumerBaseVisitor.cs" />
+    <Compile Include="XmlConsumerVisitor.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

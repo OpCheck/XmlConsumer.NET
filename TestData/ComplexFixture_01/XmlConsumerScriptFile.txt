@@ -1,0 +1,24 @@
+(
+	ExpressionType: 'XPath';
+	Encoding: 'UTF8';
+	Prefix: 'city', 'http://www.opcheck.net/2017-04-25/city-xml';
+	Binding: 'city:Blocks/city:Block/city:Building[position() = 1]';
+	AutoParseMode: 'On';
+)
+{
+	Name: 'attribute::Name';
+	StreetNumber: 'child::city:StreetNumber';
+	PropertyId: 'child::city:PropertyId';
+	Latitude: 'child::city:Latitude';
+	ListPrice: 'child::city:ListPrice';
+	IsResidential: 'child::city:IsResidential';
+	DeedDocument: null;
+	
+	Address (Binding: 'city:Address'):
+	{
+		Line1: 'city:Line1';
+		City: 'city:City';
+		State: 'city:State';
+		ZipCode: 'city:ZipCode';
+	}
+}

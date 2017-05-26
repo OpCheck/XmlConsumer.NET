@@ -1,0 +1,10 @@
+(
+	ExpressionType: 'XPath';
+	Encoding: 'UTF8';
+	Prefix: 'hr', 'http://ns.hr-xml.org/2007-04-15';
+	AutoParseMode: 'On';
+)
+{
+	YearsOld: 'hr:Age';
+	BirthDateTime: 'hr:MyBirthDate';
+}

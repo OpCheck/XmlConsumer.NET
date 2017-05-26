@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E7C49A37-8FE3-4C20-B2BA-1888B4096EB1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OpCheck.XmlConsumer.Tests</RootNamespace>
+    <AssemblyName>OpCheck.XmlConsumer.Tests</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MbUnit.Framework, Version=0.0.0.0, Culture=neutral, PublicKeyToken=5e72ecd30bc408d5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MasterAssemblyReferences\MbUnit\MbUnit.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Address.cs" />
+    <Compile Include="Building.cs" />
+    <Compile Include="CaseRequest.cs" />
+    <Compile Include="ComplexFixture_02.cs" />
+    <Compile Include="ArrayFixture_01_Offices.cs" />
+    <Compile Include="AutoParseFixture_01_String.cs" />
+    <Compile Include="AutoParseFixture_02_Int32.cs" />
+    <Compile Include="ArrayFixture_02_Floors.cs" />
+    <Compile Include="ChildObjectFixture_01_Address.cs" />
+    <Compile Include="NullMappingFixture_03.cs" />
+    <Compile Include="NullMappingFixture_02.cs" />
+    <Compile Include="NullMappingFixture_01.cs" />
+    <Compile Include="ExpressionTypeOptionFixture_02.cs" />
+    <Compile Include="ExpressionTypeOptionFixture_01.cs" />
+    <Compile Include="EncodingFixture_02_ASCII.cs" />
+    <Compile Include="EncodingFixture_01_UTF8.cs" />
+    <Compile Include="Floor.cs" />
+    <Compile Include="Office.cs" />
+    <Compile Include="Person.cs" />
+    <Compile Include="Subject.cs" />
+    <Compile Include="TargetChildObject.cs" />
+    <Compile Include="TargetGrandChildObject.cs" />
+    <Compile Include="TargetObject.cs" />
+    <Compile Include="FixtureConfig.cs" />
+    <Compile Include="Tenant.cs" />
+    <Compile Include="ComplexFixture_01.cs" />
+    <Compile Include="XmlConsumerInterpreterFixtures\Fixture_15.cs" />
+    <Compile Include="XmlConsumerInterpreterFixtures\Fixture_14.cs" />
+    <Compile Include="XmlConsumerInterpreterFixtures\Fixture_13.cs" />
+    <Compile Include="XmlConsumerInterpreterFixtures\Fixture_12.cs" />
+    <Compile Include="XmlConsumerInterpreterFixtures\Fixture_11.cs" />
+    <Compile Include="XmlConsumerInterpreterFixtures\Fixture_10.cs" />
+    <Compile Include="XmlConsumerInterpreterFixtures\Fixture_09.cs" />
+    <Compile Include="XmlConsumerInterpreterFixtures\Fixture_08.cs" />
+    <Compile Include="XmlConsumerInterpreterFixtures\Fixture_07.cs" />
+    <Compile Include="XmlConsumerInterpreterFixtures\Fixture_06.cs" />
+    <Compile Include="XmlConsumerInterpreterFixtures\Fixture_05.cs" />
+    <Compile Include="XmlConsumerInterpreterFixtures\Fixture_04.cs" />
+    <Compile Include="XmlConsumerInterpreterFixtures\Fixture_03.cs" />
+    <Compile Include="XmlConsumerInterpreterFixtures\Fixture_02.cs" />
+    <Compile Include="XmlConsumerInterpreterFixtures\Fixture_00.cs" />
+    <Compile Include="XmlConsumerInterpreterFixtures\Fixture_01.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OpCheck.XmlConsumer\OpCheck.XmlConsumer.csproj">
+      <Project>{51FD9D46-E75C-451E-A1A6-127B311E7065}</Project>
+      <Name>OpCheck.XmlConsumer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,12 @@
++ Do not require a ; after an object mapping block.  This feels unnatural.
+
++ Create a keyword option set - XPath, UTF8, AutoParse.
+
++ How do we load lists?
+
++ How do we load dictionaries?
+
++ How do we let users specify their own parse methods?
+
++ If a child object is null, then we should create the object using its empty constructor.
+

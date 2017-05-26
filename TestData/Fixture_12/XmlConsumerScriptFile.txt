@@ -1,0 +1,13 @@
+(
+	ExpressionType: 'XPath';
+	Encoding: 'UTF8';
+	Binding: 'self::*';
+	Prefix: 'hr', 'http://ns.hr-xml.org/2007-04-15';
+	AutoParseMode: 'On';
+)
+{
+	ChildObject:
+	{
+		FirstName: 'hr:Name';
+	}
+}

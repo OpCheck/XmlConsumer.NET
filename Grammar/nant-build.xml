@@ -1,0 +1,35 @@
+<project>
+
+	<target name="GenerateParserComponents">
+	
+		<exec program="java">
+			<arg value="-jar" />
+			<arg value="C:\Program Files\ANTLRv4\antlr-4.7-complete.jar" />
+			<arg value="-Dlanguage=CSharp" />
+			<arg value="-package" />
+			<arg value="OpCheck.XmlConsumer" />
+			<arg value="-listener" />
+			<arg value="-visitor" />
+			<arg value="-o" />
+			<arg value="GeneratedParserComponents" />
+			<arg value="XmlConsumer.g4" />
+		</exec>
+		
+		<!--
+		RENAME THE LISTENER FILE.
+		-->
+		<move file="GeneratedParserComponents/XmlConsumerListener.cs" tofile="GeneratedParserComponents/IXmlConsumerListener.cs"></move>
+		<move file="GeneratedParserComponents/XmlConsumerVisitor.cs" tofile="GeneratedParserComponents/IXmlConsumerVisitor.cs"></move>
+	
+		<!--
+		COPY OUR GENERATED PARSER COMPONENTS TO THE SOURCE FILE DIRECTORY.
+		-->
+		<copy todir="C:\Projects\XmlConsumer.NET\Assemblies\OpCheck.XmlConsumer">
+			<fileset basedir="GeneratedParserComponents">
+				<include name="*.cs" />
+			</fileset>
+		</copy>
+	
+	</target>
+
+</project>

@@ -1,0 +1,19 @@
+(
+	Encoding: 'UTF8';
+	AutoParseMode: 'On';
+	ExpressionType: 'XPath';
+	Prefix: 'hr', 'http://ns.hr-xml.org/2007-04-15';
+	Binding: 'self::*';
+	Binding: 'hr:BackgroundCheckOrder';
+	Binding: 'hr:Subject';
+	Binding: 'hr:Address';
+)
+{
+	ChildObject (ExpressionType: 'Constant'):
+	{
+		GrandChildObject (ExpressionType: 'Constant'):
+		{
+			Line1 (ExpressionType: 'XPath'): 'hr:Line1';
+		}
+	}
+}

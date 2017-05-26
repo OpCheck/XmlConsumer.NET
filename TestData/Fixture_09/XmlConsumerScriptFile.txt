@@ -1,0 +1,9 @@
+(
+	ExpressionType: 'XPath';
+	Encoding: 'UTF8';
+	Prefix: 'hr', 'http://ns.hr-xml.org/2007-04-15';
+	Binding: 'self::*';
+)
+{
+	BillingCode1: 'hr:BillingCode1';
+}

@@ -1,0 +1,9 @@
+(
+	ExpressionType: 'XPath';
+	Encoding: 'UTF8';
+	Prefix: 'hr', 'http://ns.hr-xml.org/2007-04-15';
+	Bindings: 'child::hr:BillingCodes', 'child::hr:BusinessLine[@Name = "Engines"]', 'child::hr:Division[@Name = "Rings"]', 'child::hr:Department[@Name = "Research"]';
+)
+{
+	BillingCode1: 'hr:BillingCode1';
+}

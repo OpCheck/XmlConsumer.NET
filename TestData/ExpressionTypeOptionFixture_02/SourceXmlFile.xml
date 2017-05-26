@@ -1,0 +1,40 @@
+<City xmlns="http://www.opcheck.net/2017-04-25/city-xml">
+	<Blocks>
+		<Block>
+			<Building Name="Curtis Center">
+				<StreetNumber>510</StreetNumber>
+				<PropertyId>998298347</PropertyId>
+				<Latitude>16.5</Latitude>
+				<ListPrice>500345.2345</ListPrice>
+				<IsResidential>False</IsResidential>
+				<Address>
+					<Line1>510 Walnut Street</Line1>
+					<City>Philadelphia</City>
+					<State>PA</State>
+					<ZipCode>19135</ZipCode>
+				</Address>
+				<Floors>
+					<Floor>
+						<Number>1</Number>
+					</Floor>
+					<Floor>
+						<Number>2</Number>
+					</Floor>
+				</Floors>
+				<Tenants>
+					<Tenant>
+						<CompanyName>ABIM</CompanyName>
+					</Tenant>
+				</Tenants>
+				<Offices>
+					<Office>
+						<SquareFeet>1000</SquareFeet>
+					</Office>
+					<Office>
+						<SquareFeet>2000</SquareFeet>
+					</Office>
+				</Offices>
+			</Building>
+		</Block>
+	</Blocks>
+</City>
