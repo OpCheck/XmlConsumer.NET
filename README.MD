@@ -2,7 +2,7 @@
 
 ## Introduction
 
-XmlConsumer.NET is a domain-specific language that accepts an XML document and populates a given .NET object.
+XmlConsumer.NET is a domain-specific language for extracting data from an XML document into a .NET object.
 This mapping process is called "consumption."
 
 It is ideal for applications that must use the same data model but receive different XML formats - such as integration endpoints.
