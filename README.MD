@@ -2,36 +2,116 @@
 
 ## Introduction
 
-XmlConsumer.NET is a domain-specific language for extracting data from an XML document into a .NET object.
-This mapping process is called "consumption."
+XmlConsumer.NET is a domain-specific language designed to easily extract data from an XML document into a .NET object.
+This is a mapping process that we call **consumption** at a high level and **loading** at the low level.
 
-It is ideal for applications that must use the same data model but receive different XML formats - such as integration endpoints.
+It is ideal for .NET applications that must populate the same object model but receive different XML formats such as a web service or a messaging endpoint.
 
-The application creates an instance of class XmlConsumerInterpreter and provides it a script and an object to populate.
+To use it, you embed the interpreter component into your application and specify 3 things:
+
+1. The **Source XML Document**, or just **Source**.  This is the XML document you are extracting data from.
+
+1. The **Target Object**, or just **Target**.  This is the instance of the .NET object you are populating, or **loading**.
+
+1. The **Mapping Script**, or just **Script**.
+This is the set of Xpath expressions combined with a terse and powerful syntax that defines how the Target is loaded.
+The language of the Script is not-very-creatively named **XML Consumer Mapping Script**, or **XCMS**.
 
 ## Motivation
 
-As an integrations developer at a kickass background check company, I had the following recurring problem:
+As an integrations developer at a leading background check company - each customer had its own XML message format for ordering our services.
+We had hundreds of customers - so there was a huge variety of XML data formats that we had to process.
+We had the following recurring problems:
 
 1. We needed to extract hundreds of data points from an XML message.
 
-0. The data points had to be placed into a prescribed object model that all integrations used.
+0. The data points had to be placed into the same well-defined object model that all integration applications used.
 
-0. The data points we needed to collect would change.  Also, how we needed to collect a data point - such as where it would go - would change.
+0. The data points we needed to collect changed often.  Also, how we needed to collect a data point - such as where it would go - changed often.
 
-0. Changing the mapping logic was a slow process.  It required a recompile and redeployment of the assemblies.
+0. Applying a single change the mapping logic was a slow process.  We had to recompile and redeploy the .NET assemblies.
 
 ## Solution
 
-XmlConsumer.NET solves the last 4 problems by externalizing the mapping logic into a physical file.
+XmlConsumer.NET solves these problems by offering the following major benefits:
 
-* The lines of code that perform the mapping 
+1. All XPath expressions and node set processing logic are factored out into an XCMS script.
+This makes your application shorter because you do not have to write logic that invokes the XPath interpreter and loops through the results.
 
-* You can now declaratively 
+1. An XCMS script is designed to declaratively pair a target property or field with a source XPath expression.
+The interpreter uses .NET reflection to find the members of the Target - so it can work with any object.
 
-* During development, 
+1. Changing where a source data point goes is as simple changing the target member name in the XCMS script - which is just a text file.
+XCMS scripts are designed to be terse - so it is also easy to identify where a change needs to be made in little time.
 
-* In production, changing the mapping logic becomes a configuration issue.  All you have to do is replace the mapping script.
+1. Changing the XCMS script does not imply that your application will need to be recompiled.  This makes development faster during the change/test cycle.
+
+1. From a deployment perspective, applying mapping process changes are a configuration concern.
+Replacing the mapping script has an immediate effect.
+Your application does not need to be restarted.
+
+If you choose to take advantage of them, there are additional minor benefits, too:
+
+1. Direct "bytes to object" load strategy.
+You can specify the encoding to use in the XCMS script and have the interpreter load the source document for you, directly from a stream or array of bytes.
+
+1. Automatic Instantiation.
+Instead of creating and providing the target yourself, you can just provide the type of the object and have the interpreter create an empty instance for you.
+
+## Getting Started
+
+As an example, let's pretend that we are a background check company.
+We have a client that orders our services by sending us an XML message that looks like this:
+
+	<?xml version="1.0"?>
+	<ClientMessage>
+		<DepartmentName>Information Technology</DepartmentName>
+	</ClientMessage>
+
+We have a background check class defined as follows:
+
+	public class BackgroundCheck
+	{
+		public string BillingCode;
+	}
+	
+We need to save the client's department as a billing code for downstream reporting.
+
+Therefore, we want the 'BillingCode' field on the target object to have the value of the 'DepartmentName' element in the source.
+
+We can express this concisely in an XCMS script by writing:
+
+	{
+		BillingCode: 'child::DepartmentName';
+	}
+
+There are several things that we just expressed here:
+
+* Implicitly, the interpreter has set the default expression type to be **XPath**.
+
+* Implicitly, the interpreter has made the **source context element** for all XPath expressions to be the root element of the source document.
+In this example, this is the 'ClientMessage' element.
+
+* An opening curly brace '{' means we are entering a new **target object context**.
+In this example this is just the instance of the 'BackgroundCheck' provided to the interpreter.
+
+* On the left side of the ':' is the name of the **target field** on the .NET object.
+This means we are targeting the 'BillingCode' field on the target object.
+This is what gets its value set.
+
+* On the right side of the ':' is an XPath expression.
+This XPath expression gets the value of the 'DepartmentName' child element.
+In general, this is a type of **mapping statement**.
+
+* The closing curly brace '}' means we are exiting the **target object context**.
+In this example, this is just the instance of the 'BackgroundCheck' provided to the interpreter.
+
+You may notice that XCMS looks like a combination of CSS and JSON.
+
+
+
+	
+	
 
 ## Usage
 
