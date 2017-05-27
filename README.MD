@@ -103,44 +103,32 @@ This is what gets its value set.
 This XPath expression gets the value of the 'DepartmentName' child element.
 In general, this is a type of **mapping statement**.
 
-* The closing curly brace '}' means we are exiting the **target object context**.
+* The closing curly brace '}' means we are exiting the current **target object context**.
+This means we are done changing the members of the current object.
 In this example, this is just the instance of the 'BackgroundCheck' provided to the interpreter.
 
 You may notice that XCMS looks like a combination of CSS and JSON.
 
+Now let's look at what we have to write to perform this mapping in your application.
+Start by referencing the XmlConsumer Namespace:
 
-
+	using OpCheck.XmlConsumer;
 	
-	
-
-## Usage
-
-	//
-	// CREATE AND INITIALIZE THE INTERPRETER.
-	//
 	XmlConsumerInterpreter CreatedInterpreter = new XmlConsumerInterpreter();
 	CreatedInterpreter.Init();
-	
-	//
-	// SPECIFY THE SOURCE XML DOCUMENT - AN INSTANCE OF XmlDocument.  THIS IS THE DOCUMENT THAT YOU ARE CONSUMING.
-	//
 	CreatedInterpreter.SourceDocument = SourceXmlDocument;
-	
-	//
-	// SPECIFY THE SCRIPT FILE PATH THAT CONTAINS THE MAPPING LOGIC.
-	//
 	CreatedInterpreter.ScriptFilePath = ScriptFilePath;
-	
-	//
-	// SPECIFY THE TARGET OBJECT THAT YOU ARE POPULATING.
-	//
 	CreatedInterpreter.TargetObject = new BackgroundCheck();
-	
-	//
-	// EXECUTE THE MAPPING AND POPULATE THE TARGET OBJECT.
-	//
 	CreatedInterpreter.Execute();
 
+//
+// CREATE AND INITIALIZE THE INTERPRETER.
+// SPECIFY THE SOURCE XML DOCUMENT - AN INSTANCE OF XmlDocument.  THIS IS THE DOCUMENT THAT YOU ARE CONSUMING.
+// SPECIFY THE SCRIPT FILE PATH THAT CONTAINS THE MAPPING LOGIC.
+// SPECIFY THE TARGET OBJECT THAT YOU ARE POPULATING.
+// EXECUTE THE MAPPING AND POPULATE THE TARGET OBJECT.
+//
+	
 ## Mapping File Basics
 
 The mapping file contains the logic that reads the XML document and populates the target object.
